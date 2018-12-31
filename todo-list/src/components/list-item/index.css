@@ -1,0 +1,10 @@
+.listItemWrapper{
+  background-color: white;
+  margin-bottom: 10px;
+  border-bottom: blue solid 2px;
+  width: 400px;
+}
+
+.listItemWrapper span {
+  padding: 5px;
+}
