@@ -8,3 +8,7 @@
 .listItemWrapper span {
   padding: 5px;
 }
+
+.checked {
+  text-decoration: line-through;
+}

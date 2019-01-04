@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import ListItem from '../listItem/index.js'
+import ListItem from '../list-item/index.js'
 
 class App extends React.Component {
   state = {
@@ -34,11 +34,12 @@ class App extends React.Component {
     })})
   }
 
-  toggle = (status) => {
-    let statusChanged = !status
-    // so now I want to change the todos.complete value to the statusChanged
+  toggle = (id) => {
+    let todos = [...this.state.todos]
+    const todoToFind = this.state.todos.filter((todos) => todos.id === id )
+    todoToFind[0].complete = !todoToFind[0].complete
+    this.setState({todoToFind})
   }
-
 
   render() {
     return (
