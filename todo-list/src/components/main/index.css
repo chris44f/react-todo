@@ -1,0 +1,24 @@
+table {
+  border-bottom: black solid 3px
+}
+
+.column-priority {
+  min-width: 8vw;
+  text-align: center;
+}
+
+.column-date {
+  text-align: center;
+}
+
+.column-status {
+  text-align: center;
+}
+
+thead th  {
+  border-bottom: black solid 1px;
+}
+
+tbody tr:hover {
+  background-color: #ffff00
+}
