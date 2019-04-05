@@ -53,16 +53,28 @@ class App extends React.Component {
     this.setState({todoToFind})
   }
 
-  handleUp = (number) => {
-    console.log(number)
-    let todoUp = this.state.todos.slice(number-1,number)
-    let todoDown = this.state.todos.slice(number-2,number-1)
-    let updatedTodos = [...this.state.todos]
-    todoUp[0].number = number-1
-    todoDown[0].number = number
-    updatedTodos[number-2] = todoUp
-    updatedTodos[number-1] = todoDown
-    this.setState({updatedTodos})
+  handleUp = (num) => {
+    if (num > 1) {
+      let updatedTodos = [...this.state.todos]
+      updatedTodos[num-1].number = num-1
+      updatedTodos[num-2].number = num
+      console.log(updatedTodos)
+      updatedTodos.sort((a,b)=> a.number - b.number)
+      console.log(updatedTodos)
+      this.setState({todos: updatedTodos})
+    } else {alert("This task is already at the top of this list!")}
+  }
+
+  handleDown = (num) => {
+    if (num < this.state.todos.length) {
+      let updatedTodos = [...this.state.todos]
+      updatedTodos[num-1].number = num+1
+      updatedTodos[num].number = num
+      console.log(updatedTodos)
+      updatedTodos.sort((a,b)=> a.number - b.number)
+      console.log(updatedTodos)
+      this.setState({todos: updatedTodos})
+    } else {alert("This task is already at the bottom of this list!")}
   }
 
   render() {
@@ -88,6 +100,7 @@ class App extends React.Component {
             removeItem={this.removeItem}
             toggle={this.toggle}
             handleUp={this.handleUp}
+            handleDown={this.handleDown}
           />
         ))}
           </tbody>
